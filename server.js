@@ -20,7 +20,6 @@ const stories = require("./routes/stories");
 const auth = require("./routes/auth");
 const users = require("./routes/users");
 const reviews = require("./routes/reviews");
-const ai = require("./routes/ai");
 
 // Connect to the database
 connectDB();
@@ -50,7 +49,6 @@ app.use("/api/v1/stories", stories);
 app.use("/api/v1/auth", auth);
 app.use("/api/v1/users", users);
 app.use("/api/v1/reviews", reviews);
-app.use("/api/v1/ai", ai);
 
 app.use(errorHandler);
 

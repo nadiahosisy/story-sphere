@@ -34,7 +34,6 @@ exports.login = asyncHandler(async (req, res, next) => {
 
   // Check for user
   const user = await User.findOne({ email }).select("+password");
-
   if (!user) {
     return next(new ErrorResponse("Invalid credentials", 401));
   }
@@ -52,34 +51,34 @@ exports.login = asyncHandler(async (req, res, next) => {
 //@route      POST /api/vi/auth/me
 //@access     Private
 
-exports.getMe = asyncHandler(async (req, res, next) => {
-  const user = await User.findById(req.user.id);
-  res.status(200).json({
-    success: true,
-    data: user,
-  });
-});
+// exports.getMe = asyncHandler(async (req, res, next) => {
+//   const user = await User.findById(req.user.id);
+//   res.status(200).json({
+//     success: true,
+//     data: user,
+//   });
+// });
 
 //@desc       Update user details
 //@route      PUT /api/vi/auth/updatedetails
 //@access     Private
 
-exports.updateDetails = asyncHandler(async (req, res, next) => {
-  const fieldsToUpdate = {
-    name: req.body.name,
-    email: req.body.email,
-  };
+// exports.updateDetails = asyncHandler(async (req, res, next) => {
+//   const fieldsToUpdate = {
+//     name: req.body.name,
+//     email: req.body.email,
+//   };
 
-  const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
-    new: true,
-    runValidators: true,
-  });
+//   const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
+//     new: true,
+//     runValidators: true,
+//   });
 
-  res.status(200).json({
-    success: true,
-    data: user,
-  });
-});
+//   res.status(200).json({
+//     success: true,
+//     data: user,
+//   });
+// });
 
 //Get token from model,create cookie and send response
 const sendTokenResponse = (user, statusCode, res) => {
