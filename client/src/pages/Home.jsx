@@ -1,15 +1,7 @@
 import { NavLink } from 'react-router-dom';
-import { useGlobalShoeContext } from '../hooks';
-
 import './style/Home.css';
 
 const Home = () => {
-  const { isLoading } = useGlobalShoeContext();
-
-  if (isLoading) {
-    return <div className="loading">Loading...</div>;
-  }
-
   return (
     <section className="home-container">
       <div className="content">

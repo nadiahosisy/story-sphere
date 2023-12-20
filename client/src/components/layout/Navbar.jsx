@@ -1,29 +1,22 @@
 import { Link } from 'react-router-dom';
-import { useGlobalAuthContext } from '../../hooks';
 import NavListItem from './NavListItem';
 
 const Navbar = () => {
-  const { currentUser } = useGlobalAuthContext();
-
   const navListItems = [
+    {
+      to: '/',
+      text: 'Home',
+      className: null,
+    },
     {
       to: '/about',
       text: 'About Us',
       className: null,
     },
-    {
-      to: '/articles',
-      text: 'Articles',
-      className: null,
-    },
+
     {
       to: '/contact',
       text: 'Contact Us',
-      className: null,
-    },
-    {
-      to: currentUser ? 'admin/manageArticles' : 'admin',
-      text: 'Administration',
       className: null,
     },
     {
