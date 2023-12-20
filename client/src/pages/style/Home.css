@@ -1,0 +1,42 @@
+.loading {
+  font-size: 3rem;
+  margin: 2rem;
+  text-align: center;
+  font-weight: 500;
+}
+
+.home-container {
+  background-color: var(--primary-color);
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  max-width: 80%;
+}
+
+.upper-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40vh;
+}
+
+.lower-content {
+  flex-grow: 1;
+  height: 40vh;
+}
+
+.picture-section {
+  width: 50%;
+  height: 300px;
+  background-image: url('your-image-url.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.text-section {
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+}

@@ -1,17 +1,11 @@
-// import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-// import { ToastContainer } from 'react-toastify';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 
-// import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
-// import {
-//   Auth,
-//   Home,
-//   Shoe,
-//   ManageShoe,
-//   NotFound
-// } from './pages';
+import { Home, NotFound } from './pages';
 
-// import { ProtectedRoute, SharedLayout } from './components';
+import { SharedLayout } from './components';
 
 // const routes = [
 //   {
@@ -63,19 +57,14 @@
 // }
 
 // export default App;
-import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-import BeforeLoginNavbar from '../src/components/layout/BeforeLoginInNavbar';
-import Navbar from '../src/components/layout/Navbar';
+
+
 
 function App() {
+
   return (
-    <Router>
-      <div>
-        <BeforeLoginNavbar />
-        <Navbar />
-      </div>
-    </Router>
+    <> 
+    </>
   );
 }
 

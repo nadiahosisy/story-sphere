@@ -1,23 +1,20 @@
-// import { Outlet } from "react-router";
-// import Navbar from './Navbar';
 
-// import './style.css';
+import './style.css';
+import Footer from './Footer';
+import { Outlet } from 'react-router';
 
-// const SharedLayout = () => {
+const SharedLayout = () => {
+  return (
+    <>
+      <div className="container">
+        <Navbar />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
+    </>
+  );
+};
 
-//     return (
-//         <>
-//             <div className="container">
-//                 <Navbar />
-//                 <main>
-//                     <Outlet />
-//                 </main>
-//                 <footer className="footer">
-//                     <p>All Rights Reserved 2023</p>
-//                 </footer>
-//             </div>
-//         </>
-//     );
-// };
-
-// export default SharedLayout;
+export default SharedLayout;

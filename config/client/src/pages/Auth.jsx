@@ -6,7 +6,12 @@ import { Input } from '../components';
 
 const Auth = () => {
   const [isRegister, setIsRegister] = useState(false);
-  const { formData, errors, handleChange, handleSubmit } = useAuthForm(isRegister);
+  const {
+    formData,
+    errors,
+    handleChange,
+    handleSubmit
+  } = useAuthForm(isRegister);
 
   const fields = [
     {
@@ -15,7 +20,7 @@ const Auth = () => {
       inputName: 'name',
       value: formData.name,
       type: 'text',
-      error: errors.name,
+      error: errors.name
     },
     {
       id: 2,
@@ -23,7 +28,7 @@ const Auth = () => {
       inputName: 'email',
       value: formData.email,
       type: 'text',
-      error: errors.email,
+      error: errors.email
     },
     {
       id: 3,
@@ -31,7 +36,7 @@ const Auth = () => {
       inputName: 'password',
       value: formData.password,
       type: 'password',
-      error: errors.password,
+      error: errors.password
     },
   ];
 
@@ -41,13 +46,18 @@ const Auth = () => {
     <section className="single-column-container">
       <h2>{isRegister ? 'Register' : 'Log In'}</h2>
       <form onSubmit={handleSubmit}>
-        {mapFields.map((field) => (
+        {mapFields.map(field => (
           <Input key={field.id} {...field} handleChange={handleChange} />
         ))}
-        <button className="btn update-btn" type="submit">
+        <button
+          className="btn update-btn"
+          type="submit"
+        >
           {isRegister ? 'Register' : 'Log In'}
         </button>
-        <p className="switch" onClick={() => setIsRegister(!isRegister)}>
+        <p
+          className='switch'
+          onClick={() => setIsRegister(!isRegister)}>
           {isRegister ? 'Already have an account? Log In' : "Don't have an account yet? Register"}
         </p>
       </form>
