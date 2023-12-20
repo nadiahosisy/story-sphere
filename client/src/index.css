@@ -14,7 +14,7 @@
   --primary-red: #ff002b;
   --primary-green: #00d724;
   --primary-box-shadow: 0.6rem 0.5rem 5rem var(--secondary-background-color);
-
+  background: linear-gradient(80deg, #4e5cf2, white, blue);
 }
 
 li {

@@ -2,17 +2,12 @@ import { Link } from "react-router-dom";
 import { useGlobalAuthContext } from "../../hooks";
 import "./Navbar.css";
 import NavListItem from "./NavListItem";
-import logo from "../../assets/star-doodle.svg";
 
 const Navbar = () => {
   const { currentUser } = useGlobalAuthContext();
 
   const navListItems = [
-    {
-      to: "/about",
-      text: "About Us",
-      className: null,
-    },
+
     {
       to: "/articles",
       text: "Articles",
@@ -28,19 +23,13 @@ const Navbar = () => {
       text: "Administration",
       className: null,
     },
-    {
-      to: "/donate",
-      text: "Donate Now",
-      className: "btn login-btn",
-    },
   ];
 
   return (
     <nav className="navbar">
       <Link to="/">
         <div className="navbar-logo-container">
-          <img className="navbar-logo-img" src={logo} alt="logo" />
-          <h2 className="navbar-logo">EmbraceIsrael</h2>
+          <h2 className="navbar-logo">StorySphere</h2>
         </div>
       </Link>
       <ul className="nav-links">

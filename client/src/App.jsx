@@ -4,12 +4,10 @@ import { useGlobalArticleContext } from "./hooks";
 
 import {
   Home,
-  About,
   Contact,
   NotFound,
   Articles,
   Admin,
-  Donate,
 } from "./pages";
 
 import {
@@ -27,10 +25,6 @@ const routes = [
       {
         index: true,
         element: <Home />,
-      },
-      {
-        path: "about",
-        element: <About />,
       },
       {
         path: "contact",
@@ -85,10 +79,6 @@ const routes = [
         ],
       },
       {
-        path: "donate",
-        element: <Donate />,
-      },
-      {
         path: "*",
         element: <NotFound />,
       },
@@ -98,12 +88,12 @@ const routes = [
 
 function App() {
   const router = createBrowserRouter(routes);
-  const { error, clearError } = useGlobalArticleContext();
+  // const { error, clearError } = useGlobalArticleContext();
 
-  useEffect(() => {
-    if (error) {
-    }
-  }, [error, clearError]);
+  // useEffect(() => {
+  //   if (error) {
+  //   }
+  // }, [error, clearError]);
 
   return (
     <>

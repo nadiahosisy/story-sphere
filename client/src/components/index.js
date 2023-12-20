@@ -6,7 +6,6 @@ import Navbar from "./navbar/Navbar";
 import NavListItem from "./navbar/NavListItem";
 import Banner from "./banner/Banner";
 import InstituteBanner from "./instituteBanner/InstituteBanner";
-import AboutBanner from "./aboutBanner/AboutBanner";
 import Login from "./login/Login";
 import FullPageArticle from "./fullPageArticle/FullPageArticle";
 import Article from "./article/Article";
@@ -20,7 +19,6 @@ export {
   SharedLayout,
   Banner,
   InstituteBanner,
-  AboutBanner,
   Login,
   FullPageArticle,
   Article,
