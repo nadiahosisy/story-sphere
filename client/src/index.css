@@ -7,8 +7,8 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5rem;
   font-weight: 400;
-  --primary-color: #0f1366;
-  --secondary-color: #171da2;
+  --primary-color: purple;
+  --secondary-color: #1404f6;
   --orange: rgb(245, 115, 10);
   --white-color: #fff;
 }

@@ -63,14 +63,19 @@
 // }
 
 // export default App;
-
-
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import BeforeLoginNavbar from '../src/components/layout/BeforeLoginInNavbar';
+import Navbar from '../src/components/layout/Navbar';
 
 function App() {
-
   return (
-    <> 
-    </>
+    <Router>
+      <div>
+        <BeforeLoginNavbar />
+        <Navbar />
+      </div>
+    </Router>
   );
 }
 
