@@ -20,8 +20,8 @@ const Home = () => {
         <div className="text-section">
           <h1>Start Creating Stories Now</h1>
           <div className="btn-container">
-            <button className="btn">Click To Login</button>
-            <button className="btn">Click To Register</button>
+            <button className="btn"> Login </button>
+            <button className="btn"> Register </button>
           </div>
         </div>
       </div>

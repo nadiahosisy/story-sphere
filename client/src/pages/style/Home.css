@@ -49,19 +49,20 @@
 }
 
 .btn {
-  width: 10rem;
+  width: 12rem;
   border-radius: 8px;
   margin-top: 30px;
   margin-left: 20px;
-  border: 1px solid transparent;
-  padding: 2rem;
-  font-size: 1.6rem;
+  border: 2px solid transparent;
+  font-size: 1.8rem;
   font-weight: 500;
   background-color: #1a1a1a;
   color: #fff;
-  transition: border-color 0.25s;
+  transition: 0.25s;
+  padding: 2rem;
 }
 
 .btn:hover {
-  border-color: #646cff;
+  color: #1a1a1a;
+  background-color: #fff;
 }
