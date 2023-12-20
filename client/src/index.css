@@ -7,8 +7,8 @@
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5rem;
   font-weight: 400;
-  --primary-color: #0f1366;
-  --secondary-color: #171da2;
+  --primary-color: purple;
+  --secondary-color: #1404f6;
   --orange: rgb(245, 115, 10);
   --white-color: #fff;
 }
@@ -62,34 +62,9 @@ html {
 }
 
 .container {
-  max-width: 120rem;
+  max-width: 100%;
   height: 100vh;
   margin: 0 auto;
   display: grid;
   grid-template-rows: 1fr 8fr 1fr;
-}
-
-.single-column-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem 0;
-}
-
-.switch {
-  text-decoration: underline;
-  cursor: pointer;
-  font-size: 1.2rem;
-}
-
-.not-found {
-  font-size: 3rem;
-  text-align: center;
-  margin: 10rem auto 8rem;
-}
-
-.login-info {
-  margin-top: 1rem;
-  font-size: 1.4rem;
 }

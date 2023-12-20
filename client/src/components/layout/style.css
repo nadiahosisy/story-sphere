@@ -1,10 +1,10 @@
-.navbar{
-  display:flex;
+.navbar {
+  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   height: 8rem;
-  background-color:var(--grey);
+  background-color: var(--grey);
 }
 .logo {
   text-transform: uppercase;
@@ -14,11 +14,10 @@
   color: var(--secondary-color);
   padding: 0 1rem;
 }
-.nav-links{
+.nav-links {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 .nav-links a {
   font-weight: 500;
@@ -31,19 +30,19 @@
   background-color: var(--primary-color);
   color: #fff;
 }
-.nav-links a.active{
+.nav-links a.active {
   color: var(--primary-color);
 }
-.nav-links a.active:hover{
+.nav-links a.active:hover {
   color: #fff;
 }
-.user-name{
+.user-name {
   font-weight: 500;
   color: var(--secondary-color);
   font-size: 1.5rem;
   margin-right: 2rem;
 }
-.log-in-and-out{
+.log-in-and-out {
   margin-left: 10rem;
   display: flex;
   justify-content: space-between;
@@ -51,11 +50,19 @@
 }
 
 .footer {
-  background-color: var(--grey);
-  height: 5rem;
+  background-color: var(--secondary-color);
+  flex-direction: column;
+  height: 10vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   font-size: 1.5rem;
+  color: var(--white-color);
+  padding: 10px;
+  width: 100%;
+}
+
+.footer h1 {
+  margin-bottom: 20px;
 }

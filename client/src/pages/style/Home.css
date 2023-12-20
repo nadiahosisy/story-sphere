@@ -1,33 +1,42 @@
-.loading{
+.loading {
   font-size: 3rem;
   margin: 2rem;
   text-align: center;
   font-weight: 500;
 }
 
-.shoes-container{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 5rem;
-  padding: 5rem;
-  margin: 0 auto;
-  border-bottom: 0.5rem solid rgb(185, 183, 183) ;
-
+.home-container {
+  background-color: var(--primary-color);
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
 }
-.shoe-container{
-  border-bottom: 0.1rem dotted rgb(185, 183, 183) ;
-}
-.shoe-name a,.shoe-name{
-  font-size: 2rem;
-  line-height:4rem;
-  color: var(--primary-color);
-}
-.shoe-brand{
-  color: var(--secondary-color);
-  font-size: 1.5rem;
-}
-.shoe-img{
-  width: 25rem;
-  height: 20rem;
+.content {
+  max-width: 80%;
 }
 
+.upper-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40vh;
+}
+
+.lower-content {
+  flex-grow: 1;
+  height: 40vh;
+}
+
+.picture-section {
+  width: 50%;
+  height: 300px;
+  background-image: url('your-image-url.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.text-section {
+  width: 50%;
+  padding: 20px;
+  text-align: center;
+}
