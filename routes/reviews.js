@@ -26,7 +26,7 @@ router
     }),
     getReviews
   )
-  .post(protect, authorize("user", "admin"), addReview);
+  .post(protect, authorize("user"), addReview);
 router
   .route("/:id")
   .get(getReview)
