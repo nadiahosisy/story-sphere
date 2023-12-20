@@ -18,7 +18,6 @@ dotenv.config({ path: "./config/config.env" });
 // Route files
 const stories = require("./routes/stories");
 const auth = require("./routes/auth");
-const users = require("./routes/users");
 const reviews = require("./routes/reviews");
 
 // Connect to the database
@@ -47,7 +46,6 @@ app.use(express.static(path.join(__dirname, "public")));
 // Mount routers
 app.use("/api/v1/stories", stories);
 app.use("/api/v1/auth", auth);
-app.use("/api/v1/users", users);
 app.use("/api/v1/reviews", reviews);
 
 app.use(errorHandler);
