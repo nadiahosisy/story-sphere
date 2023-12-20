@@ -50,7 +50,7 @@ input {
 @media screen and (min-width: 600px) {
   .auth-form-container {
     padding: 7rem;
-    border: 2px solid var(--secondary-color);
+    background-color: var(--primary-color);
     border-radius: 10px;
     margin: 0.5rem;
   }
