@@ -1,15 +1,15 @@
 import { useGlobalShoeContext } from '../hooks';
 
-import { ShoeCard } from '../components';
+// import { ShoeCard } from '../components';
 
 import './style/Home.css';
 
 const Home = () => {
-  const { isLoading } = useGlobalShoeContext();
+  // const { isLoading } = useGlobalShoeContext();
 
-  if (isLoading) {
-    return <div className="loading">Loading...</div>;
-  }
+  // if (isLoading) {
+  //   return <div className="loading">Loading...</div>;
+  // }
 
   return (
     <section className="home-container">

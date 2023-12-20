@@ -7,15 +7,15 @@ import { showToast } from '../utils';
 export const ShoeContext = createContext();
 
 export const ShoeProvider = ({ children }) => {
-  const [shoes, setShoes] = useState([]);
-  const [currentShoe, setCurrentShoe] = useState({});
+  const [shoes, setStories] = useState([]);
+  const [currentShoe, setCurrentStory] = useState({});
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchShoes = async () => {
     setIsLoading(true);
     try {
-      const response = await shoeAPI.getAllShoes();
-      setShoes(response.data);
+      const response = await shoeAPI.getAllStories();
+      setStories(response.data);
     } catch (err) {
       showToast(err.response?.data?.error || 'An error occurred', 'error');
     } finally {
@@ -27,7 +27,7 @@ export const ShoeProvider = ({ children }) => {
     setIsLoading(true);
     try {
       const response = await shoeAPI.getShoe(shoeId);
-      setCurrentShoe(response.data);
+      setCurrentStory(response.data);
     } catch (err) {
       showToast(err.response?.data?.error || 'An error occurred', 'error');
     } finally {

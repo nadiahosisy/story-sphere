@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { useAuthForm } from '../hooks';
 
-import { Input } from '../components';
+// import { Input } from '../components';
 
 const Auth = () => {
   const [isRegister, setIsRegister] = useState(false);
@@ -41,9 +41,9 @@ const Auth = () => {
     <section className="single-column-container">
       <h2>{isRegister ? 'Register' : 'Log In'}</h2>
       <form onSubmit={handleSubmit}>
-        {mapFields.map((field) => (
+        {/* {mapFields.map((field) => (
           <Input key={field.id} {...field} handleChange={handleChange} />
-        ))}
+        ))} */}
         <button className="btn update-btn" type="submit">
           {isRegister ? 'Register' : 'Log In'}
         </button>
