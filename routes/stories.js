@@ -8,7 +8,7 @@ const {
 	createBootcamp,
 	getBootcampsInRadius,
 	bootcampImageUpload,
-} = require('../controllers/bootcamps');
+} = require('../controllers/stories');
 
 const Bootcamp = require('../models/Story');
 
