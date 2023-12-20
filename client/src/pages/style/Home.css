@@ -56,13 +56,13 @@
   border: 2px solid transparent;
   font-size: 1.8rem;
   font-weight: 500;
-  background-color: #1a1a1a;
+  background-color: var(--secondary-color);
   color: #fff;
   transition: 0.25s;
   padding: 2rem;
 }
 
 .btn:hover {
-  color: #1a1a1a;
+  color: var(--secondary-color);
   background-color: #fff;
 }

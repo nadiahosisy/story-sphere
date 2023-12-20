@@ -1,11 +1,10 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
-
 import { Home, NotFound } from './pages';
 
-import { SharedLayout } from './components';
+import Login from './components/Form/Login';
+import Register from './components/Form/Register';
+import SharedLayout from './components/layout/SharedLayout';
 
 const routes = [
   {
@@ -15,6 +14,14 @@ const routes = [
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: '/login',
+        element: <Login />,
+      },
+      {
+        path: 'register',
+        element: <Register />,
       },
       {
         path: '*',

@@ -1,5 +1,4 @@
 import { Outlet } from 'react-router';
-import ResponsiveAppBar from './Navbar';
 
 import './style.css';
 import Footer from './Footer';

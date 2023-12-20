@@ -1,6 +1,5 @@
+import { NavLink } from 'react-router-dom';
 import { useGlobalShoeContext } from '../hooks';
-
-import { ShoeCard } from '../components';
 
 import './style/Home.css';
 
@@ -20,8 +19,12 @@ const Home = () => {
         <div className="text-section">
           <h1>Start Creating Stories Now</h1>
           <div className="btn-container">
-            <button className="btn"> Login </button>
-            <button className="btn"> Register </button>
+            <NavLink to="/login" className="btn">
+              Login
+            </NavLink>
+            <NavLink to="/register" className="btn">
+              Register
+            </NavLink>
           </div>
         </div>
       </div>
