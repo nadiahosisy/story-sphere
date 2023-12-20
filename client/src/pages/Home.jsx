@@ -14,15 +14,16 @@ const Home = () => {
   return (
     <section className="home-container">
       <div className="content">
-        <div className="upper-content">
-          <div className="picture-section"></div>
-          <div className="text-section">
-            <h1>Your Heading Here</h1>
-            <button>Button 1</button>
-            <button>Button 2</button>
+        <div className="picture-section">
+          <div className="img"></div>
+        </div>
+        <div className="text-section">
+          <h1>Start Creating Stories Now</h1>
+          <div className="btn-container">
+            <button className="btn">Click To Login</button>
+            <button className="btn">Click To Register</button>
           </div>
         </div>
-        <div className="lower-content">jfjlkgfjlkgfjltrtytryt</div>
       </div>
     </section>
   );

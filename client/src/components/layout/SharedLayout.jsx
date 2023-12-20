@@ -1,8 +1,9 @@
 import { Outlet } from 'react-router';
-import Navbar from './Navbar';
+import ResponsiveAppBar from './Navbar';
 
 import './style.css';
 import Footer from './Footer';
+import Navbar from './Navbar';
 
 const SharedLayout = () => {
   return (
