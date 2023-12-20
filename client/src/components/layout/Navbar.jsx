@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useGlobalAuthContext } from '../../hooks';
+// import { useGlobalAuthContext } from '../../hooks';
 import NavListItem from './NavListItem';
 
 const Navbar = () => {
-  const { currentUser } = useGlobalAuthContext();
+  // const { currentUser } = useGlobalAuthContext();
 
   const navListItems = [
     {
@@ -21,11 +21,11 @@ const Navbar = () => {
       text: 'Contact Us',
       className: null,
     },
-    {
-      to: currentUser ? 'admin/manageArticles' : 'admin',
-      text: 'Administration',
-      className: null,
-    },
+    // {
+    //   to: currentUser ? 'admin/manageArticles' : 'admin',
+    //   text: 'Administration',
+    //   className: null,
+    // },
     {
       to: '/donate',
       text: 'Donate Now',
