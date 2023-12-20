@@ -1,7 +1,5 @@
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
-import 'react-toastify/dist/ReactToastify.css';
 import { Home, NotFound } from './pages';
-
 import Login from './components/Form/Login';
 import Register from './components/Form/Register';
 import SharedLayout from './components/layout/SharedLayout';
