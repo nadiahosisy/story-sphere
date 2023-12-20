@@ -1,13 +1,11 @@
 /* App.css or your custom styles file */
+
 .story-container {
-  margin-top: 5rem;
+  margin-top: 10rem;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
 
 .story-card {
@@ -19,19 +17,23 @@
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
   padding: 1rem;
+  background-color: #fff;
+  text-align: center;
 
   &:hover {
     transform: scale(1.05);
   }
 
   .story-title {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
-    color: #333;
+  color: #e05012!important;
+    margin-bottom: 1rem;
   }
 
   .story-content {
     margin-bottom: 0.5rem;
-    color: #777;
+    color: #666;
+    line-height: 1.4;
   }
 }

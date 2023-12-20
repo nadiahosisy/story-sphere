@@ -5,7 +5,12 @@
   align-items: center;
   justify-content: center;
   color: white;
-  background-image: linear-gradient(79deg, var(--primary-color), #c66fbc 48%, var(--secondary-color));
+  background-image: linear-gradient(
+    79deg,
+    var(--primary-color),
+    #c66fbc 48%,
+    var(--secondary-color)
+  );
 }
 
 .auth-form-container,
@@ -13,10 +18,14 @@
 .register-form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: x-large;
 }
 .form-header {
   font-size: 4rem;
   margin-bottom: 20px;
+  color: #ffffff;
 }
 
 label {
@@ -32,12 +41,12 @@ input {
   border: none;
   border-radius: 10px;
 }
-
-.btn {
+/* 
+.btn1 {
   width: 12rem;
   border-radius: 8px;
   margin-top: 30px;
-  margin-left: 20px;
+  margin-left: 200px;
   border: 2px solid transparent;
   font-size: 1.8rem;
   font-weight: 500;
@@ -45,7 +54,9 @@ input {
   color: #fff;
   transition: 0.25s;
   padding: 2rem;
-}
+  width: 100%;
+  margin: a;
+} */
 
 @media screen and (min-width: 600px) {
   .auth-form-container {
@@ -54,8 +65,4 @@ input {
     border-radius: 10px;
     margin: 0.5rem;
   }
-}
-.btn:hover {
-  color: var(--secondary-color);
-  background-color: #fff;
 }

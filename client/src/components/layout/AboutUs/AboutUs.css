@@ -1,0 +1,27 @@
+/* AboutUs.css */
+
+.about-us {
+  max-width: 800px;
+  margin: 5rem auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  color: #e05012!important;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 23px;
+  text-align: center;
+}
+
+/* Add more styling as needed */

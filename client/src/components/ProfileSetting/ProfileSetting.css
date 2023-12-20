@@ -1,0 +1,82 @@
+/* App.css */
+
+.app {
+  max-width: 600px;
+  margin: 6.9rem auto;
+  padding: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+
+
+h1 {
+  font-size: 2.5rem;
+  color: #e05012!important;
+margin: 3rem;}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+label {
+  font-size: 1.2rem;
+  color: #333;
+  display: block;
+}
+
+input,
+select {
+  padding: 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: calc(100% - 2rem); /* Adjust the width */
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #4caf50;
+}
+
+input:not([type="checkbox"]),
+select {
+  margin-bottom: 1rem;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+/* Responsive styling */
+@media (max-width: 400px) {
+  .app {
+    padding: 1.5rem;
+  }
+
+  label {
+    margin-left: 0;
+  }
+
+  input,
+  select {
+    margin-left: 0;
+  }
+}

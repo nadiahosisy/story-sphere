@@ -13,7 +13,16 @@ const Navbar = () => {
       text: 'About Us',
       className: null,
     },
-
+    {
+      to: 'ProfileSetting',
+      text: 'profile',
+      className: null,
+    },
+    {
+      to: '/stories',
+      text: 'Stories',
+      className: 'null',
+    },
     {
       to: '/contact',
       text: 'Contact Us',

@@ -35,7 +35,7 @@ export const Login = () => {
             required
             minLength="4"
           />
-          <button className="btn" type="submit">
+          <button className="btn1" type="submit">
             Log In
           </button>
         </form>
