@@ -1,16 +1,16 @@
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
 const Review = require('../models/Review');
-const Bootcamp = require('../models/Story');
+const Story = require('../models/Story');
 
 //@desc       Get Reviews
 //@route      GET /api/vi/review
-//@route      GET /api/vi/bootcamps/:bootcampId/reviews
+//@route      GET /api/vi/stories/:storyId/reviews
 //@access     Public
 
 exports.getReviews = asyncHandler(async (req, res, next) => {
-	if (req.params.bootcampId) {
-		const reviews = await Review.find({ bootcamp: req.params.bootcampId });
+	if (req.params.storyId) {
+		const reviews = await Review.find({ story: req.params.storyId });
 		return res.status(200).json({
 			success: true,
 			count: reviews.length,
@@ -27,7 +27,7 @@ exports.getReviews = asyncHandler(async (req, res, next) => {
 
 exports.getReview = asyncHandler(async (req, res, next) => {
 	const review = await Review.findById(req.params.id).populate({
-		path: 'bootcamp',
+		path: 'story',
 		select: 'name description',
 	});
 	if (!review) {
@@ -40,16 +40,16 @@ exports.getReview = asyncHandler(async (req, res, next) => {
 });
 
 //@desc       Add review
-//@route      Post /api/vi/bootcamps/:bootcampId/reviews
+//@route      Post /api/vi/stories/:storyId/reviews
 //@access     Private
 exports.addReview = asyncHandler(async (req, res, next) => {
-	req.body.bootcamp = req.params.bootcampId;
+	req.body.story = req.params.storyId;
 	req.body.user = req.user.id;
 
-	const bootcamp = await Bootcamp.findById(req.params.bootcampId);
+	const story = await Story.findById(req.params.storyId);
 
-	if (!bootcamp) {
-		return next(new ErrorResponse(`No bootcamp with the id of ${req.params.bootcampId}`));
+	if (!story) {
+		return next(new ErrorResponse(`No story with the id of ${req.params.storyId}`));
 	}
 
 	const review = await Review.create(req.body);

@@ -1,7 +1,5 @@
 const mongoose = require("mongoose");
 const slugify = require("slugify");
-const geocoder = require("../utils/geocoder");
-
 const StorySchema = new mongoose.Schema(
 	{
 		name: {
@@ -12,6 +10,13 @@ const StorySchema = new mongoose.Schema(
 			maxlength: [50, 'Name can not be more than 50 characters'],
 		},
 		slug: String,
+		text: {
+			type: String,
+			required: ['Please add story text'],
+			unique: true,
+			trim: true,
+			maxlength: [1000, 'Text can not be more than 1000 characters'],
+		},
 		createdAt: {
 			type: Date,
 			default: Date.now,
@@ -34,32 +39,13 @@ StorySchema.pre("save", function (next) {
   next();
 });
 
-// Geocode & create location field
-StorySchema.pre("save", async function (next) {
-  const loc = await geocoder.geocode(this.address);
-  this.location = {
-    type: "Point",
-    coordinates: [loc[0].longitude, loc[0].latitude],
-    formattedAddress: loc[0].formattedAddress,
-    street: loc[0].streetName,
-    city: loc[0].city,
-    state: loc[0].stateCode,
-    zipcode: loc[0].zipcode,
-    country: loc[0].countryCode,
-  };
-
-  // Do not save address in DB
-  this.address = undefined;
-  next();
-});
-
-// Cascade delete courses when a bootcamp is deleted
+// Cascade delete courses when a story is deleted
 StorySchema.pre(
   "deleteOne",
   { document: true, query: false },
   async function (next) {
-    console.log(`Courses being removed from bootcamp ${this._id}`);
-    await this.model("Course").deleteMany({ bootcamp: this._id });
+    console.log(`Courses being removed from story ${this._id}`);
+    await this.model("Course").deleteMany({ story: this._id });
     next();
   }
 );
@@ -68,8 +54,8 @@ StorySchema.pre(
 StorySchema.virtual("courses", {
   ref: "Course",
   localField: "_id",
-  foreignField: "bootcamp",
+  foreignField: "story",
   justOne: false,
 });
 
-module.exports = mongoose.model('Bootcamp', StorySchema);
+module.exports = mongoose.model('Story', StorySchema);

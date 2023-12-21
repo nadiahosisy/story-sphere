@@ -12,19 +12,13 @@ const ReviewSchema = new mongoose.Schema({
     type: String,
     required: [true, "please add a some text"],
   },
-  rating: {
-    type: Number,
-    min: 1,
-    max: 10,
-    required: [true, "please add a rating between 1 and 10"],
-  },
   createdAt: {
     type: Date,
     default: Date.now,
   },
-  bootcamp: {
+  story: {
     type: mongoose.Schema.ObjectId,
-    ref: "Bootcamp",
+    ref: "Story",
     required: true,
   },
   user: {
@@ -35,21 +29,21 @@ const ReviewSchema = new mongoose.Schema({
 });
 
 // Static method to get avg rating and save
-ReviewSchema.statics.getAverageRating = async function (bootcampId) {
+ReviewSchema.statics.getAverageRating = async function (storyId) {
   const obj = await this.aggregate([
     {
-      $match: { bootcamp: bootcampId },
+      $match: { story: storyId },
     },
     {
       $group: {
-        _id: "$bootcamp",
+        _id: "$story",
         averageRating: { $avg: "$rating" },
       },
     },
   ]);
 
   try {
-    await this.model("Bootcamp").findByIdAndUpdate(bootcampId, {
+    await this.model("Story").findByIdAndUpdate(storyId, {
       averageRating: obj[0].averageRating,
     });
   } catch (err) {
@@ -59,15 +53,15 @@ ReviewSchema.statics.getAverageRating = async function (bootcampId) {
 
 // Call getAverageCost after save
 ReviewSchema.post("save", async function () {
-  await this.constructor.getAverageRating(this.bootcamp);
+  await this.constructor.getAverageRating(this.story);
 });
 
 // Call getAverageCost after remove
 ReviewSchema.post("remove", async function () {
-  await this.constructor.getAverageRating(this.bootcamp);
+  await this.constructor.getAverageRating(this.story);
 });
 
-// Prevent user from submitting more than one review per bootcamp
-ReviewSchema.index({ bootcamp: 1, user: 1 }, { unique: true });
+// Prevent user from submitting more than one review per story
+ReviewSchema.index({ story: 1, user: 1 }, { unique: true });
 
 module.exports = mongoose.model("Review", ReviewSchema);

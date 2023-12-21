@@ -18,14 +18,9 @@ const advancedResults = require('../middleware/advancedResult');
 const { protect } = require('../middleware/auth');
 
 //Re-route into other resource routers
-router.use("/:bootcampId/reviews", reviewsRouter);
+router.use("/:storyId/reviews", reviewsRouter);
 
-router
-  .route("/")
-  .post( 
-	// authorize("publisher", "admin"), 
-	createStory)
-	.get(getStories)
+router.route('/').post(createStory).get(advancedResults(Story), getStories);
 router
 	.route('/:id')
 	.get(getStory)

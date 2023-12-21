@@ -14,7 +14,7 @@ const router = express.Router({
   mergeParams: true,
 });
 
-const advancedResult = require("../middleware/advancedResult");
+const advancedResults = require("../middleware/advancedResult");
 const { protect, 
   authorize 
 } = require("../middleware/auth");
@@ -22,8 +22,8 @@ const { protect,
 router
   .route("/")
   .get(
-    advancedResult(Review, {
-      path: "bootcamp",
+    advancedResults(Review, {
+      path: "story",
       select: "name description",
     }),
     getReviews

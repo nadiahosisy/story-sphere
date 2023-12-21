@@ -2,7 +2,7 @@ const path = require('path');
 const ErrorResponse = require('../utils/errorResponse');
 const Story = require('../models/Story');
 const asyncHandler = require('../middleware/async');
-const geocoder = require('../utils/geocoder');
+const advancedResults = require('../middleware/advancedResult');
 
 //@desc       Get all stories
 //@route      GET /api/vi/stories
@@ -10,6 +10,7 @@ const geocoder = require('../utils/geocoder');
 exports.getStories = asyncHandler(async (req, res, next) => {
 	res.status(200).json(res.advancedResults);
 });
+
 
 //@desc       Get single story
 //@route      GET /api/vi/stories/:id
@@ -29,20 +30,6 @@ exports.getStory = asyncHandler(async (req, res, next) => {
 	}
 });
 
-//@desc       Create new story
-//@route      POST /api/vi/stories
-//@access     Private
-exports.createStory = asyncHandler(async (req, res, next) => {
-	// Add user to req,body
-	req.body.user = req.user.id;
-
-	const story = await Story.create(req.body);
-
-	res.status(201).json({
-		success: true,
-		data: story,
-	});
-});
 
 // //@desc       Update story
 // //@route      PUT /api/vi/bootcamps/:id
@@ -76,13 +63,13 @@ exports.deleteStory = asyncHandler(async (req, res, next) => {
 
 	if (!story) {
 		return next(
-			new ErrorResponse(`Bootcamp that ends with '${req.params.id.slice(-6)}' was not found`, 404)
+			new ErrorResponse(`Story that ends with '${req.params.id.slice(-6)}' was not found`, 404)
 		);
 	}
 	// Make sure user is story owner
 	if (story.user.toString() !== req.user.id && req.user.role !== 'admin') {
 		return next(
-			new ErrorResponse(`User ${req.params.id} is not authorized to delete this bootcamp`, 401)
+			new ErrorResponse(`User ${req.params.id} is not authorized to delete this story`, 401)
 		);
 	}
 
