@@ -1,13 +1,13 @@
 .stories-container {
-  height: 86vh;
+  height: auto;
   padding-bottom: 10rem;
   padding-top: 4rem;
   width: 80vw;
   margin-left: 10vw;
 }
-.manage-stories{
-    height: auto;
-    padding-bottom: 10rem;      
+.manage-stories {
+  height: auto;
+  padding-bottom: 10rem;
 }
 .stories-header {
   display: flex;

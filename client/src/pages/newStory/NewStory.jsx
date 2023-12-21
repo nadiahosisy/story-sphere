@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import useNewStory from "./useNewStory";
-
+import StyledButton from "../../components/styledButton/StyledButton";
 import "./NewStory.css";
 
 const NewStory = () => {
-  const { story, errors, handleChange, handleSubmit} = useNewStory();
+  const { story, errors, handleChange, handleSubmit } = useNewStory();
 
   const fields = [
     {
       id: "prompt",
       label: "Prompt",
       type: "text",
-      placeholder: "Enter a story prompt here...",
+      placeholder: `I would like a story about...
+                    A girl...
+            Some ice-cream...`,
       value: story.prompt,
       error: errors.prompt,
     },
@@ -28,25 +30,25 @@ const NewStory = () => {
 
   const handleAdd = async (e) => {
     e.preventDefault();
-    const res = handleSubmit(e)
-    if(res) {
-      console.log(res)
+    const res = handleSubmit(e);
+    if (res) {
+      console.log(res);
     }
   };
 
   return (
     <div className="new-story-container">
       <header className="new-story-header">
-        <h2>New Story</h2>
-        <Link to="/admin/manageStories" className="back-link">
+        <h2 className="header-story">New Story</h2>
+        <Link to="/stories" className="back-link">
           Cancel
         </Link>
       </header>
       <div className="new-story-form">
         <div>
           {fields.map((input) => (
-            <div key={input.id}>
-              <div className={`new-story-input ${input.class}`}>
+            <div className={"inputs-container"} key={input.id}>
+              <div className={`new-story-input`}>
                 <label htmlFor={input.id}>{input.label}</label>
                 <textarea
                   id={input.id}
@@ -60,9 +62,9 @@ const NewStory = () => {
             </div>
           ))}
         </div>
-          <button type="submit" onClick={handleAdd}>
-            Send
-          </button>
+        <StyledButton type="submit" onClick={handleAdd}>
+          Generate your new story!
+        </StyledButton>
       </div>
     </div>
   );
