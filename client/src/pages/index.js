@@ -1,13 +1,11 @@
-import Admin from "./admin/Admin";
-import Articles from "./articles/Articles";
-import Contact from "./contact/Contact";
+import NewStory from "./newStory/NewStory";
+import Stories from './stories/Stories';
 import Home from "./home/Home";
 import NotFound from "./notFound/NotFound";
 
 export {
-  Admin,
-  Articles,
-  Contact,
+  NewStory,
+  Stories,
   Home,
   NotFound,
 };

@@ -1,20 +1,19 @@
-import { useEffect, useRef } from "react";
+// import { useEffect, useRef } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { useGlobalArticleContext } from "./hooks";
+// import { useGlobalArticleContext } from "./hooks";
 
 import {
   Home,
-  Contact,
   NotFound,
-  Articles,
-  Admin,
+  Stories,
+  NewStory
 } from "./pages";
 
 import {
   ProtectedRoute,
   SharedLayout,
-  FullPageArticle,
-  NewArticle,
+  FullPageStory,
+  // NewArticle,
 } from "./components";
 
 const routes = [
@@ -27,54 +26,15 @@ const routes = [
         element: <Home />,
       },
       {
-        path: "contact",
-        element: <Contact />,
-      },
-      {
-        path: "articles",
+        path: "stories",
         children: [
           {
             index: true,
-            element: <Articles />,
+            element: <Stories />,
           },
           {
             path: ":articleId",
-            element: <FullPageArticle />,
-          },
-        ],
-      },
-      {
-        path: "admin",
-        element: <Admin />,
-        children: [
-          {
-            path: "manageArticles",
-            children: [
-              {
-                index: true,
-                element: (
-                  <ProtectedRoute>
-                    <Articles isManage={true} />
-                  </ProtectedRoute>
-                ),
-              },
-              {
-                path: ":articleId",
-                element: (
-                  <ProtectedRoute>
-                    <FullPageArticle isManage={true} />
-                  </ProtectedRoute>
-                ),
-              },
-            ],
-          },
-          {
-            path: "newArticle",
-            element: (
-              <ProtectedRoute>
-                <NewArticle />
-              </ProtectedRoute>
-            ),
+            element: <FullPageStory />,
           },
         ],
       },

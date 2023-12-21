@@ -1,25 +1,19 @@
-import NewArticle from "./newArticle/NewArticle";
-import Input from "./input/Input";
+// import Input from "./input/Input";
 import ProtectedRoute from "./ProtectedRoute";
 import SharedLayout from "./sharedLayout/SharedLayout";
 import Navbar from "./navbar/Navbar";
 import NavListItem from "./navbar/NavListItem";
-import Banner from "./banner/Banner";
-import InstituteBanner from "./instituteBanner/InstituteBanner";
-import Login from "./login/Login";
-import FullPageArticle from "./fullPageArticle/FullPageArticle";
-import Article from "./article/Article";
+// import Login from "./login/Login";
+import FullPageStory from "./fullPageStory/FullPageStory";
+import Story from "./story/Story";
 
 export {
   Navbar,
   NavListItem,
-  NewArticle,
-  Input,
+  // Input,
   ProtectedRoute,
   SharedLayout,
-  Banner,
-  InstituteBanner,
-  Login,
-  FullPageArticle,
-  Article,
+  // Login,
+  FullPageStory,
+  Story,
 };

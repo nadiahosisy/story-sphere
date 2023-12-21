@@ -9,8 +9,8 @@ const Navbar = () => {
   const navListItems = [
 
     {
-      to: "/articles",
-      text: "Articles",
+      to: "/stories",
+      text: "Stories",
       className: null,
     },
     {

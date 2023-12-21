@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import useNewArticle from "./useNewArticle";
-import imgSvg from "../../assets/add-photo.svg";
+import useNewStory from "./useNewStory";
 
-import Input from "../input/Input";
-import "./NewArticle.css";
+import "./NewStory.css";
 
-const NewArticle = ({ articleId }) => {
-  const { article, errors, handleChange, handleSubmit, image, percentLoad, uploadFile} = useNewArticle();
-  const [file, setFile] = useState(null);
+const NewStory = () => {
+  const { story, errors, handleChange, handleSubmit} = useNewStory();
 
   const fields = [
     {
@@ -16,7 +13,7 @@ const NewArticle = ({ articleId }) => {
       label: "Title",
       type: "text",
       placeholder: "Enter title here...",
-      value: article.title,
+      value: story.title,
       error: errors.title,
     },
     {
@@ -24,7 +21,7 @@ const NewArticle = ({ articleId }) => {
       label: "Subtitle",
       type: "text",
       placeholder: "Enter subtitle here...",
-      value: article.subtitle,
+      value: story.subtitle,
       error: errors.subtitle,
     },
     {
@@ -33,23 +30,19 @@ const NewArticle = ({ articleId }) => {
       type: "textarea",
       placeholder:
         "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit beatae odit officiis ex iure amet consectetur repellendus eveniet saepe. Sunt?",
-      value: article.body,
+      value: story.body,
       error: errors.body,
-      class: "article-body",
+      class: "story-body",
     },
     {
       id: "footer",
       label: "Footer",
       type: "text",
       placeholder: "Author: Jhonny Appleseed",
-      value: article.footer,
+      value: story.footer,
       error: errors.footer,
     },
   ];
-
-  useEffect(() => {
-    file && uploadFile(file);
-  }, [file]);
 
   const handleAdd = async (e) => {
     e.preventDefault();
@@ -60,18 +53,18 @@ const NewArticle = ({ articleId }) => {
   };
 
   return (
-    <div className="new-article-container">
-      <header className="new-article-header">
-        <h2>New Article</h2>
-        <Link to="/admin/manageArticles" className="back-link">
+    <div className="new-story-container">
+      <header className="new-story-header">
+        <h2>New Story</h2>
+        <Link to="/admin/manageStories" className="back-link">
           Cancel
         </Link>
       </header>
-      <div className="new-article-form">
+      <div className="new-story-form">
         <div>
           {fields.map((input) => (
             <div key={input.id}>
-              <div className={`new-article-input ${input.class}`}>
+              <div className={`new-story-input ${input.class}`}>
                 <label htmlFor={input.id}>{input.label}</label>
                 <textarea
                   id={input.id}
@@ -81,26 +74,16 @@ const NewArticle = ({ articleId }) => {
                   value={input.value}
                 />
               </div>
-              <span className="article-error">{input.error}</span>
+              <span className="story-error">{input.error}</span>
             </div>
           ))}
         </div>
-        {/* <h4>image</h4> */}
-        <form onSubmit={handleAdd} className="img-form">
-          <label htmlFor="file">{image ? <img src={image}/> : <img className="svg-img" src={imgSvg}/>}</label>
-          <input
-            type="file"
-            id="file"
-            onChange={(e) => setFile(e.target.files[0])}
-            style={{ display: "none" }}
-          />
-          <button type="submit" disabled={percentLoad !== null && percentLoad < 100}>
+          <button type="submit" onClick={handleAdd}>
             Send
           </button>
-        </form>
       </div>
     </div>
   );
 };
 
-export default NewArticle;
+export default NewStory;

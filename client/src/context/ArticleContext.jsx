@@ -1,27 +1,22 @@
 import React, { createContext, useState, useEffect } from 'react';
 import {
-	addArticle,
-	getAllArticles,
-	getNonArchiveArticles,
-	toggleIsArchive,
-	getArticle,
-} from '../firebase/api';
+	addStory,
+	getAllStories,
+	getStory,
+} from '../api/api';
 
 export const ArticleContext = createContext();
 
 export const ArticleProvider = ({ children }) => {
-	const [allArticles, setAllArticles] = useState([]);
-	const [articles, setArticles] = useState([]);
-	const [article, setArticle] = useState(null);
+	const [stories, setStories] = useState([]);
+	const [story, setStory] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
 
-	const fetchAllArticles = async () => {
+	const fetchAllStories = async () => {
 		try {
-			const allArticlesData = await getAllArticles();
-			const articlesData = await getNonArchiveArticles();
-			setAllArticles(allArticlesData);
-			setArticles(articlesData);
+			const storiesData = await getAllStories();
+			setStories(storiesData.data);
 			setIsLoading(false);
 		} catch (err) {
 			setError(err.message);
@@ -30,45 +25,23 @@ export const ArticleProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
-		fetchAllArticles();
+		fetchAllStories();
 		console.log('fetched data on empty dependency arr');
 	}, []);
 
-	const addNewArticle = async (articleData) => {
+	const addNewStory = async (articleData) => {
 		try {
-			await addArticle(articleData);
-			fetchAllArticles();
+			await addStory(articleData);
+			fetchAllStories();
 		} catch (err) {
 			setError(err.message);
 		}
 	};
 
-	// const editArticle = async (articleData) => {
-	//   try {
-	//     const updatedArticle = await updateArticle(articleData, articleData.id);
-	//     setAllArticles((prevArticles) =>
-	//       prevArticles.map((article) =>
-	//         article.id === articleData.id ? updatedArticle : article
-	//       )
-	//     );
-	//   } catch (err) {
-	//     setError(err.message);
-	//   }
-	// };
-
-	const toggleArchive = async (articleData) => {
+	const getStoryById = async (articleId) => {
 		try {
-			await toggleIsArchive(articleData);
-			fetchAllArticles();
-		} catch (err) {
-			setError(err.message);
-		}
-	};
-
-	const getArticleById = async (articleId) => {
-		try {
-			const articleData = await getArticle(articleId);
-			setArticle(articleData);
+			const articleData = await getStory(articleId);
+			setStory(articleData);
 			setIsLoading(false);
 		} catch (error) {
 			setError(error.message);
@@ -83,16 +56,13 @@ export const ArticleProvider = ({ children }) => {
 	return (
 		<ArticleContext.Provider
 			value={{
-				allArticles,
-				articles,
-				article,
+				stories,
+				story,
 				isLoading,
 				error,
-				addNewArticle,
-				// editArticle,
-				getArticleById,
+				addNewStory,
+				getStoryById,
 				clearError,
-				toggleArchive,
 			}}>
 			{children}
 		</ArticleContext.Provider>
