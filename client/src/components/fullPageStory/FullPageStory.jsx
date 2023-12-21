@@ -10,6 +10,7 @@ const FullPageStory = () => {
 
   useEffect(() => {
 		getStoryById(storyId);
+    console.log(story)
 	}, [storyId]);
 
   if (isLoading) {
@@ -21,11 +22,8 @@ const FullPageStory = () => {
       <Link to='/stories' className="full-story-back-link">Back To All Stories</Link>
       {story && (
         <div className="story-container">
-          <h2 className="story-name">{story.title}</h2>
-          <h3 className="story-subTitle">{story.subtitle}</h3>
-          <img className="story-img" src={story.img} alt="story-img" />
-          <p className="story-text">{`${story.body}`}</p>
-          <h5 className="story-footer">{`${story.footer}`}</h5>
+          <h2 className="story-name">{story.prompt}</h2>
+          <p className="story-text">{story.text}</p>
         </div>
       )}
     </section>

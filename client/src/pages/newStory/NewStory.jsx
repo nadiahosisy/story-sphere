@@ -9,39 +9,21 @@ const NewStory = () => {
 
   const fields = [
     {
-      id: "title",
-      label: "Title",
+      id: "prompt",
+      label: "Prompt",
       type: "text",
-      placeholder: "Enter title here...",
-      value: story.title,
-      error: errors.title,
+      placeholder: "Enter a story prompt here...",
+      value: story.prompt,
+      error: errors.prompt,
     },
-    {
-      id: "subtitle",
-      label: "Subtitle",
-      type: "text",
-      placeholder: "Enter subtitle here...",
-      value: story.subtitle,
-      error: errors.subtitle,
-    },
-    {
-      id: "body",
-      label: "Body",
-      type: "textarea",
-      placeholder:
-        "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Velit beatae odit officiis ex iure amet consectetur repellendus eveniet saepe. Sunt?",
-      value: story.body,
-      error: errors.body,
-      class: "story-body",
-    },
-    {
-      id: "footer",
-      label: "Footer",
-      type: "text",
-      placeholder: "Author: Jhonny Appleseed",
-      value: story.footer,
-      error: errors.footer,
-    },
+    // {
+    //   id: "subtitle",
+    //   label: "Subtitle",
+    //   type: "text",
+    //   placeholder: "Enter subtitle here...",
+    //   value: story.subtitle,
+    //   error: errors.subtitle,
+    // },
   ];
 
   const handleAdd = async (e) => {
@@ -49,7 +31,7 @@ const NewStory = () => {
     const res = handleSubmit(e)
     if(res) {
       console.log(res)
-    };
+    }
   };
 
   return (

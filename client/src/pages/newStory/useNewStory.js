@@ -7,16 +7,12 @@ const useNewStory = () => {
 	const { addNewStory, error } = useGlobalArticleContext();
 
 	const [story, setStory] = useState({
-		title: '',
-		subtitle: '',
-		body: '',
-		footer: '',
+		prompt: '',
+		
 	});
 	const [errors, setErrors] = useState({
-		title: null,
-		subtitle: null,
-		body: null,
-		footer: null,
+		prompt: null,
+		
 	});
 
 	const handleChange = (e) => {
@@ -37,25 +33,16 @@ const useNewStory = () => {
 
 		const validationRules = [
 			{
-				field: 'title',
+				field: 'prompt',
 				test: (val) => val.length >= 10,
 				errorMessage: 'title must be at least 10 characters long',
 			},
-			{
-				field: 'subtitle',
-				test: (val) => val.length >= 10,
-				errorMessage: 'subtitle must be at least 10 characters long',
-			},
-			{
-				field: 'body',
-				test: (val) => val.length >= 100,
-				errorMessage: 'body must be at least 100 characters long',
-			},
-			{
-				field: 'footer',
-				test: (val) => val.length >= 10,
-				errorMessage: 'footer must be at least 10 characters long',
-			},
+			// {
+			// 	field: 'text',
+			// 	test: (val) => val.length >= 10,
+			// 	errorMessage: 'text must be at least 10 characters long',
+			// },
+			
 		];
 
 		validationRules.forEach(({ field, test, errorMessage }) => {
@@ -72,9 +59,7 @@ const useNewStory = () => {
 			if (error) {
 				return error;
 			}
-			
-			navigate('/admin/manageArticles');
-		}
+					}
 	};
 
 	return {handleChange, handleSubmit, story, errors };

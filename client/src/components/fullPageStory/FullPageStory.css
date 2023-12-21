@@ -1,16 +1,21 @@
-.full-article-container{
+.full-story-container{
     width: 80vw;
     margin-left: 10vw;
     height: auto;
     position: relative;
-    padding-top: 6rem;
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+    padding: 10rem;
+    padding-bottom: 30rem;
+    background-color: rgba(255, 255, 255, 0.4);
+
 }
-.manage-full-article-container{
+.manage-full-story-container{
     height: auto;
     position: relative;
     padding-top: 6rem;
 }
-.manage-full-article-container .full-article-back-link{
+.manage-full-story-container .full-story-back-link{
     color: var(--secondary-text-color);
     border: none;
     background-color: var(--secondary-background-color);
@@ -21,10 +26,10 @@
     right: -0.1rem;
     top: 5rem;
 }
-.full-article-back-link{
+.full-story-back-link{
     color: var(--secondary-text-color);
     border: none;
-    background-color: var(--secondary-background-color);
+    background-color: #4e5cf2;
     padding: 0.8rem;
     font-weight: 600;
     font-size: 1.8rem;
@@ -32,23 +37,23 @@
     right: 1rem;
     top: 2rem;
 }
-.article-container h2{
+.story-container h2{
     font-size: 4.6rem;
 }
-.article-container h3{
+.story-container h3{
     font-size: 3rem;
 }
-.article-container img{
+.story-container img{
     width: 100%;
     height: 60rem;
     margin-top: 3rem;
     margin-bottom: 3rem;
     border-radius: 0.4rem;
 }
-.article-container p{
+.story-container p{
     font-size: 1.8rem;
 }
-.article-container h5{
+.story-container h5{
     font-size: 1.8rem;
     font-weight: 600;
     padding-top: 2rem;

@@ -6,7 +6,7 @@ const User = require("../models/User");
 //@route      POST /api/vi/auth/register
 //@access     Public
 exports.register = asyncHandler(async (req, res, next) => {
-  const { name, email, password, role } = req.body;
+  const { name, email, password } = req.body;
   console.log(req.body);
 
   //Create user

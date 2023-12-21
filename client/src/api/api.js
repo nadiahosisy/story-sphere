@@ -23,6 +23,7 @@ export const getStory = async (storyId) => {
 };
 
 export const addStory = async (data) => {
+  console.log(data);
 	try {
 		const response = await axios.post(BASE_URL, data);
 		return response.data;

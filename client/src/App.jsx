@@ -17,33 +17,37 @@ import {
 } from "./components";
 
 const routes = [
-  {
-    path: "/",
-    element: <SharedLayout />,
-    children: [
-      {
-        index: true,
-        element: <Home />,
-      },
-      {
-        path: "stories",
-        children: [
-          {
-            index: true,
-            element: <Stories />,
-          },
-          {
-            path: ":articleId",
-            element: <FullPageStory />,
-          },
-        ],
-      },
-      {
-        path: "*",
-        element: <NotFound />,
-      },
-    ],
-  },
+	{
+		path: '/',
+		element: <SharedLayout />,
+		children: [
+			{
+				index: true,
+				element: <Home />,
+			},
+			{
+				path: 'stories',
+				children: [
+					{
+						index: true,
+						element: <Stories />,
+					},
+					{
+						path: ':storyId',
+						element: <FullPageStory />,
+					},
+				],
+			},
+			{
+				path: 'newStory',
+					element: <NewStory />,
+			},
+			{
+				path: '*',
+				element: <NotFound />,
+			},
+		],
+	},
 ];
 
 function App() {

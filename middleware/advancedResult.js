@@ -1,4 +1,7 @@
 const advancedResults = (model, populate) => async (req, res, next) => {
+
+		// res.setHeader('Cache-Control', 'no-store');
+	
   let query;
 
   // Copy req.query

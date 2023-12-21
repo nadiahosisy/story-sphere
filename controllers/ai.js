@@ -7,7 +7,7 @@ const getOpenAiInstance = require('../config/openai');
 //@route      POST /api/v1/stories
 //@access     Private
 exports.createStory = asyncHandler(async (req, res, next) => {
-    const prompt = req.body.name;
+	const prompt = req.body.prompt;
 	const openai = getOpenAiInstance();
 
 	try {
@@ -18,22 +18,25 @@ exports.createStory = asyncHandler(async (req, res, next) => {
 			// temperature: 1,
 			// presence_penalty: 2,
 			// n: 2,
-			});
+		});
 
-			const text = completion.choices[0].text;
-            console.log(text);
-			res.send(text);
-		} catch (error) {
-			res.status(500).send('Error generating text');
-		}
+		const text = completion.choices[0].text;
 
-  // Add user to req,body
-  req.body.user = req.user.id;
+		// Create a new story in MongoDB
+		const story = await Story.create({
+			prompt: prompt,
+			text: text,
+			// Assuming that user is already added to req.body
+			// user: req.body.user,
+		});
 
-  const story = await Story.create(req.body);
-
-  res.status(201).json({
-    success: true,
-    data: story,
-  });
+		console.log(text);
+		res.status(201).json({
+			success: true,
+			data: story,
+		});
+	} catch (error) {
+		console.error(error);
+		res.status(500).send('Error generating text');
+	}
 });

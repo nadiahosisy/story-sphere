@@ -14,8 +14,8 @@ const Navbar = () => {
       className: null,
     },
     {
-      to: "/contact",
-      text: "Contact Us",
+      to: "/newStory",
+      text: "Create a Story",
       className: null,
     },
     {

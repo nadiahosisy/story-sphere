@@ -2,20 +2,19 @@ const mongoose = require("mongoose");
 const slugify = require("slugify");
 const StorySchema = new mongoose.Schema(
 	{
-		name: {
+		prompt: {
 			type: String,
-			required: ['Please add a name'],
+			required: ['Please add a prompt'],
 			unique: true,
 			trim: true,
-			maxlength: [50, 'Name can not be more than 50 characters'],
+			maxlength: [300, 'Name can not be more than 50 characters'],
 		},
-		slug: String,
 		text: {
 			type: String,
-			required: ['Please add story text'],
+			// required: ['Please add story text'],
 			unique: true,
 			trim: true,
-			maxlength: [1000, 'Text can not be more than 1000 characters'],
+			// maxlength: [2000, 'Text can not be more than 1000 characters'],
 		},
 		createdAt: {
 			type: Date,
@@ -35,7 +34,7 @@ const StorySchema = new mongoose.Schema(
 
 // Create story slug from the name
 StorySchema.pre("save", function (next) {
-  this.slug = slugify(this.name, { lower: true });
+  this.slug = slugify(this.prompt, { lower: true });
   next();
 });
 

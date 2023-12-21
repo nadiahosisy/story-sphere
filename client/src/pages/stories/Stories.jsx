@@ -7,11 +7,10 @@ import "./Stories.css";
 const Stories = () => {
   const { stories } = useGlobalArticleContext();
   // const { currentUser } = useGlobalAuthContext();
-  const [storiesData, setStoriesData] = useState([]);
   const navigate = useNavigate();
 
   const handleStoryClick = (story) => {
-    navigate(`${story.id}`);
+    navigate(`${story._id}`);
   };
 
   return (
@@ -20,10 +19,11 @@ const Stories = () => {
 				<h2>Stories</h2>
 			</header>
 			<div className="inner-stories-container">
-				{stories[0] &&
+				{stories[0] ?
 					stories.map((story) => (
 						<Story handleStoryClick={handleStoryClick} key={story.id} {...story} />
-					))}
+					)) :
+					<div>loading...</div>}
 			</div>
 		</div>
 	);

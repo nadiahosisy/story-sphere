@@ -14,8 +14,14 @@ export const ArticleProvider = ({ children }) => {
 	const [error, setError] = useState(null);
 
 	const fetchAllStories = async () => {
-		try {
-			const storiesData = await getAllStories();
+		try {  const response = await getAllStories();
+
+		if (response.status === 304) {
+			console.log('Not Modified: Using the existing state.');
+			setIsLoading(false);
+			return;
+		}
+			const storiesData = response;
 			setStories(storiesData.data);
 			setIsLoading(false);
 		} catch (err) {
@@ -38,10 +44,10 @@ export const ArticleProvider = ({ children }) => {
 		}
 	};
 
-	const getStoryById = async (articleId) => {
+	const getStoryById = async (storyId) => {
 		try {
-			const articleData = await getStory(articleId);
-			setStory(articleData);
+			const story = await getStory(storyId);
+			setStory(story.data);
 			setIsLoading(false);
 		} catch (error) {
 			setError(error.message);
